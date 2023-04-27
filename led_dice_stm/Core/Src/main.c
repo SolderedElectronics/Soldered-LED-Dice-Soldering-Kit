@@ -107,18 +107,13 @@ int main(void) {
 
 		if (flag) {
 			uint8_t rollCounter = 0;
-			uint8_t delayTime = 30;
 			int i = 0;
 
 			// Add a random value of rolls
 			do {
 				rollCounter += getNewRandomValue(&hadc1);
 				i++;
-			} while (i < getNewRandomValue(&hadc1));
-
-			// Each next display of rolls happens a bit later for dramatic effect
-			// Calculate how much longer each roll will take
-			uint8_t delayTimeIncrement = (200 / rollCounter);
+			} while (i < getNewRandomValue(&hadc1) && i < 3);
 
 			while (rollCounter) {
 				if (flag) {
@@ -141,9 +136,8 @@ int main(void) {
 				lastRandomDiceRolledValue = randomDiceRolledValue;
 				rollCounter--;
 
-				// Wait the expected length of time and increment it the correct amount
-				HAL_Delay(delayTime);
-				delayTime += delayTimeIncrement;
+				// Wait the expected length of time
+				HAL_Delay(55);
 			}
 		}
 		/* USER CODE END WHILE */
