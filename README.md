@@ -1,6 +1,6 @@
-# Soldered-Simon-Says-Game-Soldering-Kit
+# Soldered-LED-Dice-Soldering-Kit
 
-STM32 code for Simon Says Game Soldering Kit by Soldered based on STM32C011J6M6 MCU.
+STM32 code for LED Dice Soldering Kit by Soldered based on STM32C011J6M6 MCU.
 
 # **NOTE, PLEASE READ THIS!**
 
