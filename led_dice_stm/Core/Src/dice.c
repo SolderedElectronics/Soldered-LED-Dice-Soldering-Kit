@@ -20,7 +20,7 @@
  */
 uint8_t getNewRandomValue(ADC_HandleTypeDef *hadc) {
 	uint16_t seed;
-	uint16_t temp;
+	uint16_t temp = 1;
 	int i;
 
 	HAL_Delay(1);
@@ -30,11 +30,11 @@ uint8_t getNewRandomValue(ADC_HandleTypeDef *hadc) {
 		if(i > 22) HAL_Delay(temp & 0b00000011);
 		seed ^= HAL_ADC_GetValue(hadc);
 		//Shuffle the seed
-		seed = 2053 * seed + 13849;
+		seed = 2053 * seed + 12491;
 		//XOR two bytes
-		temp = seed ^ (seed >> 8);
+		temp = seed ^ (seed >> 2);
 		//XOR two nibbles
-		temp ^= (temp >> 4);
+		temp ^= (temp >> 2);
 	}
 
 	// Return remainder of division by 6, add 1 so 0 isn't included and 6 is
