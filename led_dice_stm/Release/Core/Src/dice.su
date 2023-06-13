@@ -1,0 +1,2 @@
+../Core/Src/dice.c:21:9:getNewRandomValue	24	static
+../Core/Src/dice.c:51:6:showNumber	8	static
